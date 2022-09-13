@@ -1,8 +1,9 @@
 {
   description = "A very basic flake";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-upstream.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     haskell-nix.url = "github:input-output-hk/haskell.nix";
+    nixpkgs.follows = "haskell-nix/nixpkgs";
     haskell-nix-extra-hackage = {
       url = "github:mlabs-haskell/haskell-nix-extra-hackage";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,13 +22,14 @@
   outputs =
     inputs@{ self
     , nixpkgs
+    , nixpkgs-upstream
     , haskell-nix
     , haskell-nix-extra-hackage
     , iohk-nix
     , ...
     }:
     let
-      plainNixpkgsFor = system: import nixpkgs { inherit system; };
+      plainNixpkgsFor = system: import nixpkgs-upstream { inherit system; };
       nixpkgsFor = system: import nixpkgs {
         inherit system;
         overlays = [ haskell-nix.overlay ];

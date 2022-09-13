@@ -21,11 +21,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-4bx6Bv4lZ0k+RLMu8YLUZQl7xy1pvRmh4o9Vme8CarI=",
-        "path": "/nix/store/mkya22ky7v0kr1gfz8x519fxzhflfvfy-source/bla",
+        "path": "/nix/store/1v5hh1ymlpzs3gizq5321i7zry4s30qz-source/bla",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/mkya22ky7v0kr1gfz8x519fxzhflfvfy-source/bla",
+        "path": "/nix/store/1v5hh1ymlpzs3gizq5321i7zry4s30qz-source/bla",
         "type": "path"
       }
     },
@@ -424,13 +424,13 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs-upstream": {
       "locked": {
-        "lastModified": 1661353537,
-        "narHash": "sha256-1E2IGPajOsrkR49mM5h55OtYnU0dGyre6gl60NXKITE=",
+        "lastModified": 1662934689,
+        "narHash": "sha256-mXi8hmhiunOVTeHiuouWXb0vTqjzp9v9kshMmI561Us=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0e304ff0d9db453a4b230e9386418fd974d5804a",
+        "rev": "a0b7e70db7a55088d3de0cc370a59f9fbcc906c3",
         "type": "github"
       },
       "original": {
@@ -463,7 +463,11 @@
         "haskell-nix": "haskell-nix",
         "haskell-nix-extra-hackage": "haskell-nix-extra-hackage",
         "iohk-nix": "iohk-nix",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "haskell-nix",
+          "nixpkgs"
+        ],
+        "nixpkgs-upstream": "nixpkgs-upstream"
       }
     },
     "stackage": {
