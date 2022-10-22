@@ -2,18 +2,13 @@
   description = "A very basic flake";
   inputs = {
     nixpkgs-upstream.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    haskell-nix.url = "github:input-output-hk/haskell.nix";
+    haskell-nix.url = "/home/mangoiv/Work/iog/haskell.nix/";
     nixpkgs.follows = "haskell-nix/nixpkgs";
     haskell-nix-extra-hackage = {
       url = "github:mlabs-haskell/haskell-nix-extra-hackage";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.haskell-nix.follows = "haskell-nix";
     };
-    bla = { 
-      url = "./bla";
-      flake = false;
-    };
-    
     iohk-nix = {
       url = "github:input-output-hk/iohk-nix";
       flake = false;
@@ -47,7 +42,7 @@
           plainPkgs = plainNixpkgsFor system;
           hackages = haskell-nix-extra-hackage.mkHackagesFor system compiler-nix-name 
           [
-            "${inputs.bla}"
+            "${./bla}"
           ];
         in
         pkgs.haskell-nix.cabalProject' {
